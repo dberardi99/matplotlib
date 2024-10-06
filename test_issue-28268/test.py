@@ -33,7 +33,11 @@ def subplot(*args, **kwargs) -> Axes:
    https://www.youtube.com/watch?v=k56rEoRjK4k&t=192s
    https://peps.python.org/pep-3107/
 
-2.  subplot(nrows, ncols, index). The subplot will take the "index" position on a grid with "nrows" rows and *ncols* columns.
+2. Explain the "@" syntax before function definition...
+
+3. Explain what "*" and "**" mean...
+
+4.  subplot(nrows, ncols, index). The subplot will take the "index" position on a grid with "nrows" rows and *ncols* columns.
     "index" starts at 1 in the upper left corner and increases to the right.
     
     Example #1:
@@ -49,7 +53,7 @@ def subplot(*args, **kwargs) -> Axes:
     Here I'm creating a plot that is going to occupty the uppermost 2/3 of the figure. If "index" is a two-touple
     element, the first touple's element indicates the starting index in the grid, while the second one the lasting.
     
-3. subplot(211) = subplot(2, 1, 1)
+5. subplot(211) = subplot(2, 1, 1)
 """
 
 import matplotlib
@@ -57,6 +61,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 """
+#1
 figure = plt.figure()
 ax = figure.add_subplot(111)
 ax2 = ax.twinx()
@@ -67,6 +72,7 @@ plt.show()
 """
 
 """
+#2
 fig, ax1 = plt.subplots()
 ax2 = ax1.twinx()
 for i in range(2):
@@ -78,9 +84,45 @@ for i in range(2):
     ax2.cla()
 """
 
-ax0 = plt.subplot(211) # subplot(211) = subplot(2,1,1) -> 
+"""
+#3
+ax0 = plt.subplot(211) # subplot(211) = subplot(2,1,1)
 ax1 = plt.subplot(212, sharex=ax0)
 ax0.plot(range(100))
 ax1.plot(range(100))
 ax0.cla()
 plt.show()
+"""
+
+"""
+ax0 = plt.subplot(211) # subplot(211) = subplot(2,1,1)
+ax1 = plt.subplot(212,sharex=ax0)
+a=range(50)
+b=range(70)
+ax0.plot(a)
+ax1.plot(b)
+list(a)
+a=range(100)
+ax0.plot(a)
+list(a)
+ax0.cla()
+plt.show()
+list(a)
+"""
+
+ax0 = plt.subplot(111)
+ax1 = ax0.twinx()
+ax1.set_ylabel("ay1")
+ax1.yaxis.label.set_color("red")
+ax0.plot(range(30))
+ax1.plot(range(60))
+ax1.cla() # This is an hard clear
+a=3
+ax0.set_xlabel("ax0")
+ax0.set_ylabel("ay0")
+ax0.yaxis.label.set_color("blue")
+#ax0.set_ylabel("ax0")
+#ax0.yaxis.label.set_color("red")
+ax0.cla() # Here the labels should stay
+plt.show()
+a=1
