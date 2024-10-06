@@ -1,0 +1,41 @@
+Info
+
+1. Problems while installing matplotlib in developer mode...
+
+Both ninja library and C++ interpreter are needed. For the latter (on Windows) installs Visual Studio 2022 with C++ extensions.
+
+Check this URL for Microsoft Visual C++:
+https://www.youtube.com/watch?v=rcI1_e38BWs
+
+2. Why VS Code doesn't found modules in virtual environment?
+
+By running the files through "Run Code" button we'll get an error, instead by using "Run Python File" it works (LOL :/).
+It seems like VS Code doesn't recognise that we are pointing the matplotlib version that we are modifying.
+The same script typed in the venv's Python interpreter works with no problems.
+
+Check this URL for more info:
+https://stackoverflow.com/questions/56658553/why-do-i-get-a-modulenotfounderror-in-vs-code-despite-the-fact-that-i-already
+
+3. Why VS Code doesn't allow to debug file normally?
+
+In the launch.json file set the property "justMyCode" to false. Following an example of the cited file:
+
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false // For more info, visit: https://stackoverflow.com/questions/54009081/how-can-i-debug-a-python-code-in-a-virtual-environment-using-vscode
+        }
+    ]
+}
+
+Check this URL for more info:
+https://stackoverflow.com/questions/54009081/how-can-i-debug-a-python-code-in-a-virtual-environment-using-vscode
