@@ -848,7 +848,7 @@ class Axis(martist.Artist):
                 mpl.rcParams['axes.grid'] and
                 mpl.rcParams['axes.grid.which'] in ('both', 'minor'))
 
-    def clear(self):
+    def clear(self, reset=None):
         """
         Clear the axis.
 
@@ -861,7 +861,18 @@ class Axis(martist.Artist):
         - units
         - registered callbacks
         """
-        self.label._reset_visual_defaults()
+        
+        """
+        if reset is None:
+            self.label._reset_visual_defaults()
+        elif reset == 'reset':
+            self.label._reset_visual_defaults(text=self.label._text)
+        else:
+            print('Warning! Property "reset" not applicable. It will be ignored.')
+            self.label._reset_visual_defaults()
+        """
+        if reset is not None:
+            self.label._reset_visual_defaults()
         # The above resets the label formatting using text rcParams,
         # so we then update the formatting using axes rcParams
         self.label.set_color(mpl.rcParams['axes.labelcolor'])
