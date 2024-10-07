@@ -33,8 +33,13 @@
 build
 .mesonpy*
 
-# Needed for venv
-site-packages
+# venv
+site-packages/
+Scripts/
+share/
+Include/
+etc/
+pyvenv.cfg
 
 # meson-python/build frontend dist directory
 dist
