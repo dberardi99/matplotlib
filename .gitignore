@@ -33,6 +33,9 @@
 build
 .mesonpy*
 
+# Needed for venv
+site-packages
+
 # meson-python/build frontend dist directory
 dist
 # Egg metadata
