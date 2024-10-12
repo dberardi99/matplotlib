@@ -30,3 +30,6 @@ ax1.yaxis.label._text -> It prints the y axis label
 - Side effects related to the introduction of 'reset' property (check what happens in the "_init")
 - Check if "clear" is called in other routines
 - Investigate the other actions performed while calling "clear" (e.g., "self.label.set_color(mpl.rcParams['axes.labelcolor'])")
+
+5. Coding guidelines:
+- Pass "reset" property as *kwargs and then pop out its value by calling "kwargs.pop" (e.g., see line 1514 of file pyplot.py)
