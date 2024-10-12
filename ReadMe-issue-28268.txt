@@ -33,3 +33,30 @@ ax1.yaxis.label._text -> It prints the y axis label
 
 5. Coding guidelines:
 - Pass "reset" property as *kwargs and then pop out its value by calling "kwargs.pop" (e.g., see line 1514 of file pyplot.py)
+
+if 'reset' in kwargs and len(kwargs) == 1: # To check if the user is calling the "reset" property
+	reset = kwargs.pop('reset')
+	print(reset) # DEBUG
+		if typeof(reset) is not bool:
+			raise TypeError(
+				"'reset' must be used a bool. It has been set to False")
+			reset = False
+	print(reset)
+
+elif 'reset' in kwargs and len(kwargs) > 1: # The user has called "reset" and other properties (not possible right now)
+	raise TypeError(
+		"'clear' can accept only one argument")
+	reset = kwargs.pop('reset')
+		if typeof(reset) is not bool:
+			raise TypeError(
+				"'reset' must be used a bool. It has been set to False")
+			reset = False # Default value for "reset" is False
+	print(reset)
+elif ('reset' is not in kwargs and len(kwargs) == 1):
+	raise TypeError(
+		"kwargs[0] property cannot be accepted")
+	reset = False
+
+elif len(kwargs) < 1:
+	reset False
+

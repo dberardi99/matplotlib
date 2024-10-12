@@ -116,13 +116,26 @@ ax1.set_ylabel("ay1")
 ax1.yaxis.label.set_color("red")
 ax0.plot(range(30))
 ax1.plot(range(60))
-ax1.cla() # This is an hard clear
+#ax1.cla() # This is not an hard clear
 a=3
-ax0.set_xlabel("ax0")
+ax0.set_xlabel("ax0", loc='left')
 ax0.set_ylabel("ay0")
-ax0.yaxis.label.set_color("blue")
+ax0.yaxis.label.set_color("red")
+
+ax1.cla(reset=False) # Soft clear
+ax1.set_xlabel("ax1", loc='right')
+ax1.set_ylabel("ay1", loc='bottom')
+ax1.yaxis.label.set_color("blue")
+#plt.show()
+
+ax0.yaxis.set_ticks([1,2,3,4,5,6,7,25,30])
+ax1.yaxis.set_ticks([1,2,3,4,5,6,7,25,30,35,55,80])
+
 #ax0.set_ylabel("ax0")
 #ax0.yaxis.label.set_color("red")
-ax0.cla() # Here the labels should stay
+ax0.cla(reset=5674,trgt=898) # Here the labels should stay
+ax1.cla(reset=True)
+#ax1.cla(reset='casa', trt=99)
+#ax1.axhline(70)
 plt.show()
-a=1
+b=1
