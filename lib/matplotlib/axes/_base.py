@@ -1269,8 +1269,6 @@ class _AxesBase(martist.Artist):
         # The implementation can move back into clear() when the
         # deprecation on cla() subclassing expires.
 
-        
-
         # stash the current visibility state
         if hasattr(self, 'patch'):
             patch_visible = self.patch.get_visible()

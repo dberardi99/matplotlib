@@ -860,22 +860,22 @@ class Axis(martist.Artist):
         - major and minor grid
         - units
         - registered callbacks
-        
+
         If no *kwargs* are passed *'reset'* is set by default to *False*.
-        
+
         When *'reset'* is set to *False*, part of the formatting of the axis
         (labels and relative properties) is left unchanged. Thus, a "soft"
         clear is executed in this case.
-        """        
+        """
         if len(kwargs) > 1:
             _log.debug(
                 "Method 'clear' can accept only one argument")
         if 'reset' in kwargs:
-            reset=kwargs.pop('reset')
+            reset = kwargs.pop('reset')
         else:
-            reset = False # Default
+            reset = False  # Default
         if type(reset) is not bool:
-            reset = False # Default
+            reset = False  # Default
             _log.debug(
                 "kwarg 'reset' must be a bool. It will be set to False")
         if reset:
